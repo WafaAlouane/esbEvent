@@ -10,31 +10,32 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
     @Autowired
     private UserService userService;
 
     @GetMapping
-    public List<User> getAllUser() {
-        return userService.getAllUser();
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 
     @GetMapping("/showbyid/{id}")
-    public User getUtilisateurById(@PathVariable Long id) {
-        return userService.getuserById(id);
+    public User getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
     }
 
     @PostMapping("/addUser")
-    public User createUtilisateur(@RequestBody User user) {
+    public User createUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
     @PutMapping("/updateUser/{id}")
-    public User updateUtilisateur(@PathVariable Long id, @RequestBody User userDetails) {
+    public User updateUser(@PathVariable Long id, @RequestBody User userDetails) {
         return userService.updateUser(id, userDetails);
     }
 
     @DeleteMapping("/deleteUser/{id}")
-    public void deleteUtilisateur(@PathVariable Long id) {
-        userService.deleteuser(id);
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
     }
 }
